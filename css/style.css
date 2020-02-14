@@ -1,18 +1,16 @@
 body
-    {
-        font-family: 'Open Sans', sans-serif;
-        background: #f0f0f0;
-        font-weight: 300;
-        text-align:center;
-}
-
-h1 {
+{
+    font-family: 'Open Sans', sans-serif;
+    background: #f0f0f0;
+    font-weight: 300;
     text-align:center;
 }
-.inputTarefa {
-    width:40%;
-    margin:0 0 0.5em 0;
+span {
+    cursor:pointer;
+    color:red;
 }
+
+
 
 .line-through {
     text-decoration: line-through;
