@@ -1,20 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <meta charset="utf-8">
-        <title>To-Do</title>
-        <link href="css/style.css" rel="stylesheet">
-    </head>
-    <body>
-        <header>
-            <h1>Welcomo to do</h1>
-        </header>
-        <section>
-            <input data-js="input" class="inputTarefa" type="text" placeholder="Nova Tarefa">
-            <div id="things">
-             
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO List</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">    
+</head>
+<body>
+    <header>
+        <h1>Todo List</h1>
+    </header>
+    <form>
+        <input type="text" data-js="todoInput" class="todoInput"  placeholder="Nova Tarefa" autocomplete="off">        
+        <button data-js="todoButton"class="todobutton">+</button>
+    </form>
+    <section>        
+        <div data-js="todoList" class="todoList">
+            <div class="todoItem">
+                <span>Implementar Add Item</span>              
+                <button>Remover</button>                      
+                <button>Check</button>
+            </div> 
+            <div class="todoItem">
+                <span>Implementar Remove Item</span>
+                <button>Remover</button>                      
+                <button>Check</button>
             </div>
-        </section>
-        <script src="js/todo.js"></script>
-    </body>
+            <div class="todoItem">
+                <span>Implementar List Item</span>
+                <button>Remover</button>                      
+                <button>Check</button>        
+            </div>        
+        </div>
+    </section>
+    <script src="js/todoApp.js"></script>
+</body>
 </html>
