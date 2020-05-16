@@ -6,9 +6,9 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: #360033;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #0b8793, #360033);
-    background: linear-gradient(to right, #0b8793, #360033);
+    background: #2980B9;  /* fallback for old browsers */
+    background: linear-gradient(to right,rgb(88, 138, 88),rgb(20, 192, 143));
+    
     color: white;    
 }
 
@@ -27,7 +27,7 @@ form button {
     padding: 0.8rem;
     border: none;    
     outline: none;
-}
+}   
 form input {
     width: 30%;    
 }
@@ -37,5 +37,23 @@ form input {
 }
 
 .todoItem {
-    margin: 0.9rem;
+    margin: 0.9rem 1.2rem 1rem 0.9rem;     
+}
+
+.todobuttonRemove,
+.todobuttonCheck {
+    color:white;
+    padding: 0.5rem;
+    background-color:#00be66;
+    border: none;
+    cursor: pointer;
+    border-radius: 10%;
+}
+.todobuttonRemove {
+    background-color:#ff5353;
+}
+
+.completed span {
+    text-decoration: line-through;
+    color: black;
 }
