@@ -1,23 +1,37 @@
 (function(doc,win) {
     
-    // Selectors
- 
+    // Selectors    
     const todoInput = doc.querySelector('[data-js="todoInput"]');
-    const todoButton = doc.querySelector('[data-js="todoButton"]');
+    const todoButtonAdd = doc.querySelector('[data-js="todoButton"]');
     const todoList = doc.querySelector('[data-js="todoList"]');    
 
     //Event Listeners
-    function startListeners() {
-        todoButton.addEventListener('click', addTodo)        
+    function startListeners() {  
+        win.addEventListener('load', createLocalItemsIfNotExist);     
+        win.addEventListener('load', listTodosLocal);        
+        todoButtonAdd.addEventListener('click', addTodo);        
+        todoInput.addEventListener('keydown',getKeyWord)                
+    }
+    
+    //Functions
+    function getKeyWord(event) {
+        if(event.key == "Enter") 
+            addTodo(event.target);
     }
 
-    //Functions
-
     function addTodo(event) {    
-        event.preventDefault();            
-        createTodoHTML(todoInput.value);                  
-        saveTodoLocal(todoInput.value);
+        event.preventDefault();  
+        let value = todoInput.value;
+        if(!inputIsValid(value))
+            return;
+
+        createTodoHTML(value);                  
+        saveTodoLocal(value);
         clearTodo();
+    }
+
+    function inputIsValid(input) {
+        return input.trim() !== "";
     }
 
     function clearTodo() { todoInput.value = ""; } 
@@ -78,19 +92,18 @@
     function removeTodoLocal(todo) {
         var listTodos = JSON.parse(getTodosLocal());
         let indexTodo = listTodos.findIndex(item => item === todo);
-        listTodos.pop(indexTodo);
+        listTodos.splice(indexTodo,1);
         win.localStorage.setItem('todos', JSON.stringify(listTodos));
     }
 
     function createLocalItemsIfNotExist() {
-        const list = getTodosLocal();
-        if(!list) {
+        let list = getTodosLocal();
+        if(list == null) {
             list = [];
             win.localStorage.setItem('todos', JSON.stringify(list));            
         }
     }
-    win.addEventListener('DOMContentLoaded', createLocalItemsIfNotExist);
-    win.addEventListener('load', listTodosLocal);
-    win.addEventListener('load', startListeners);
-    
+  
+    win.addEventListener('DOMContentLoaded', startListeners);    
+
 })(document,window);

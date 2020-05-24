@@ -7,8 +7,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     background: #2980B9;  /* fallback for old browsers */
-    background: linear-gradient(to right,rgb(88, 138, 88),rgb(20, 192, 143));
-    
+    background: linear-gradient(to right,#11998e,#38ef7d);
     color: white;    
 }
 
@@ -16,6 +15,7 @@ header {
     font-size: 1.3rem;
     min-height: 15vh;
 }
+
 header,form, section {
     display: flex;
     justify-content: center;
@@ -28,16 +28,49 @@ form button {
     border: none;    
     outline: none;
 }   
+
 form input {
     width: 30%;    
+    font-size: 1.1rem;
 }
 
-.todoList {
-    margin: 0.3rem;
+.todoList {    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 35%;
+    margin-top:1rem;
 }
+
+.todoButton {
+    background-color:#006145;    
+    color: #FFF;
+    font-size: 1.1rem;        
+    outline:none;
+}
+
+.todoButton:hover {
+    background-color:#00be66;
+    color: #000;   
+    font-weight: bold;
+}
+
+ .todoButton:focus,
+ .todoButton::-moz-focus-inner{
+    border: 0;
+ }
 
 .todoItem {
-    margin: 0.9rem 1.2rem 1rem 0.9rem;     
+    width:100%;
+    padding:0.5rem;    
+}
+
+.todoItem span {
+    display:block;
+    width:100%;
+    margin:0.3rem;
+    font-size:1.1rem;
 }
 
 .todobuttonRemove,
@@ -49,11 +82,18 @@ form input {
     cursor: pointer;
     border-radius: 10%;
 }
+
 .todobuttonRemove {
     background-color:#ff5353;
 }
 
 .completed span {
-    text-decoration: line-through;
-    color: black;
+    text-decoration: line-through;    
+    opacity: 0.5;
+}
+
+@media (max-width: 800px) {
+    form input {
+        width: 60%;
+    }
 }
